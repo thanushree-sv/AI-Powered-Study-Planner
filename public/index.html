@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Studyly — AI Study Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Studyly</h1>
+      <p>Tell us your exams. Get a plan that fits your time.</p>
+    </header>
+
+    <section class="card">
+      <h2>Your subjects</h2>
+      <div id="subjects"></div>
+      <button class="ghost" id="addSubject">+ Add subject</button>
+
+      <h2>Your time</h2>
+      <div class="row">
+        <label>Weekdays (hrs/day)<input type="number" id="weekday" min="0" max="16" step="0.5" value="3" /></label>
+        <label>Weekends (hrs/day)<input type="number" id="weekend" min="0" max="16" step="0.5" value="5" /></label>
+      </div>
+
+      <button class="primary" id="generate">Generate my plan</button>
+      <p class="error" id="error"></p>
+    </section>
+
+    <section id="results" hidden>
+      <div class="card tips">
+        <h2>✨ AI study strategy</h2>
+        <p id="tips">Thinking…</p>
+      </div>
+
+      <div class="legend" id="legend"></div>
+
+      <div class="card cal">
+        <div class="cal-head">
+          <button class="nav" id="prev" aria-label="Previous month">‹</button>
+          <h3 id="monthLabel"></h3>
+          <button class="nav" id="next" aria-label="Next month">›</button>
+        </div>
+        <div class="cal-grid weekdays">
+          <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+      </div>
+
+      <div class="card" id="detail" hidden></div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
